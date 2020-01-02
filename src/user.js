@@ -34,7 +34,7 @@ module.exports = {
         lastName,
         commonName,
         userName,
-        pass,
+        password,
         email,
         title,
         phone,
@@ -80,25 +80,29 @@ module.exports = {
         userPrincipalName: `${userName}@${this.config.domain}`,
         sAMAccountName: userName,
         objectClass: this.config.defaults.userObjectClass,
-        userPassword: ssha.create(pass)
+        userPassword: ssha.create(password)
       };
 
       this._addObject(`CN=${commonName}`, location, userObject)
         .then(res => {
           delete this._cache.users[userName];
           this._cache.all = {};
-          return this.setUserPassword(userName, pass);
+          return this.setUserPassword(userName, password);
         })
         .then(data => {
           let expirationMethod =
             passwordExpires === false
               ? 'setUserPasswordNeverExpires'
               : 'enableUser';
-          return this[expirationMethod](userName);
+          if (passwordExpires !== undefined) {
+            return this[expirationMethod](userName);
+          }
         })
         .then(data => {
           let enableMethod = enabled === false ? 'disableUser' : 'enableUser';
-          return this[enableMethod](userName);
+          if (enabled !== undefined) {
+            return this[enableMethod](userName);
+          }
         })
         .then(data => {
           delete userObject.userPassword;
