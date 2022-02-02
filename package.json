@@ -1,7 +1,7 @@
 {
-  "name": "ad",
-  "version": "0.3.2",
-  "description": "Active Directory API for Node",
+  "name": "ad-ng",
+  "version": "0.3.4",
+  "description": "Active Directory API for Node, forked from ad by dthree",
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged"
@@ -19,11 +19,11 @@
     "easy",
     "chainable"
   ],
-  "author": "dthree",
+  "author": "nkaminski",
   "license": "MIT",
   "dependencies": {
     "activedirectory": "^0.7.2",
-    "ldapjs": "^1.0.1",
+    "ldapjs": "^1.0.2",
     "lodash.orderby": "^4.6.0",
     "node-ssha256": "^0.1.1"
   },

@@ -1,12 +1,8 @@
-# AD
+# AD-ng
 
 > Making Active Directory jQuery-easy.
 
 ---
-
-[![Build Passing](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://img.shields.io/badge/build-passing-brightgreen.svg)
-[![Build Coverage 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://img.shields.io/badge/build-100%25-brightgreen.svg)
-
 
 AD is a Javascript implementation of common Active Directory tasks, built to be simple as possible.
 
@@ -59,17 +55,17 @@ ad.user('agnes').changePassword('d0ntForgetThisTime')\
 First, install the library:
 
 ```bash
-npm i ad
+npm i ad-ng
 ```
 
 ```bash
-yarn add ad
+yarn add ad-ng
 ```
 
 Then add this to `index.js`:
 
 ```js
-const AD = require('ad');
+const AD = require('ad-ng');
 
 // Your AD account should be a member
 // of the Administrators group.
